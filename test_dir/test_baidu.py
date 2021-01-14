@@ -36,18 +36,19 @@ def test_baidu_search_setting(page, base_url):
     检查点：
     * 检查是否弹出提示框
     """
-    result = []
     page.goto(base_url)
     page.click(BaiduElem.settings)
     page.click(BaiduElem.search_setting)
     sleep(2)
     page.click(BaiduElem.save_setting)
 
-    async def on_dialog(dialog: Dialog):
-        result.append(True)
+    def on_dialog(dialog: Dialog):
         assert dialog.type == "alert"
-        assert dialog.message == "yo"
-        await dialog.accept()
+        assert dialog.message == "已经记录下您的使用偏好"
+        dialog.accept()
 
     page.on("dialog", on_dialog)
-    assert result
+
+
+def test_zzzz(page: Page, base_url):
+    assert 2+ 2 == 4

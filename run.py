@@ -26,7 +26,7 @@ def init_env(new_report):
 
 
 def run_tests():
-    logger.info("回归模式，开始执行✈✈！")
+    logger.info("开始测试✨✨✨！")
     now_time = time.strftime("%Y_%m_%d_%H_%M_%S")
     RunConfig.NEW_REPORT = os.path.join(REPORT_DIR, now_time)
     init_env(RunConfig.NEW_REPORT)
@@ -48,7 +48,7 @@ def run_tests():
                      "--self-contained-html",
                      "--maxfail", RunConfig.max_fail,
                      "--reruns", RunConfig.rerun])
-    logger.info("运行结束，生成测试报告♥❤！")
+    logger.info("测试结束，生成测试报告💕 💕 💕 ！")
 
 
 if __name__ == '__main__':

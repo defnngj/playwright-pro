@@ -7,7 +7,7 @@ class RunConfig:
     运行测试配置
     """
     # 运行测试用例的目录或文件
-    cases_path = os.path.join(PRO_PATH, "test_dir", "test_baidu_pw.py")
+    cases_path = os.path.join(PRO_PATH, "test_dir", "test_parametrize.py")
 
     # 配置浏览器驱动类型(chromium, firefox, webkit)。
     browser = "chromium"
@@ -19,7 +19,7 @@ class RunConfig:
     url = "https://www.baidu.com"
 
     # 失败重跑次数
-    rerun = "1"
+    rerun = "0"
 
     # 当达到最大失败数，停止执行
     max_fail = "5"
