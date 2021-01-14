@@ -9,8 +9,11 @@ class RunConfig:
     # 运行测试用例的目录或文件
     cases_path = os.path.join(PRO_PATH, "test_dir", "test_baidu_pw.py")
 
-    # 配置浏览器驱动类型(chrome/firefox/chrome-headless/firefox-headless)。
-    driver_type = "chrome"
+    # 配置浏览器驱动类型(chromium, firefox, webkit)。
+    browser = "chromium"
+
+    # 运行模式（headless, headful）
+    mode = "headful"
 
     # 配置运行的 URL
     url = "https://www.baidu.com"
@@ -20,9 +23,6 @@ class RunConfig:
 
     # 当达到最大失败数，停止执行
     max_fail = "5"
-
-    # 浏览器驱动（不需要修改）
-    driver = None
 
     # 报告路径（不需要修改）
     NEW_REPORT = None

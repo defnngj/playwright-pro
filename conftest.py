@@ -4,8 +4,6 @@ from py.xml import html
 from playwright.sync_api import Browser, BrowserContext, Page
 from typing import Any, Callable, Dict, Generator
 from config import RunConfig
-from pytest_playwright.pytest_playwright import _handle_page_goto
-from pathlib import Path
 
 # 项目目录配置
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -41,8 +39,9 @@ def pytest_runtest_makereport(item):
     report = outcome.get_result()
     report.description = description_html(item.function.__doc__)
     extra = getattr(report, 'extra', [])
+    print("item.funcargs", item.funcargs)
     page = item.funcargs["page"]
-    if report.when == 'call' or report.when == "setup":
+    if report.when == 'call':
         xfail = hasattr(report, 'wasxfail')
         if (report.skipped and xfail) or (report.failed and not xfail):
             case_path = report.nodeid.replace("::", "_") + ".png"

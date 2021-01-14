@@ -3,3 +3,4 @@ pytest-playwright==0.0.10
 pytest==6.1.2
 pytest-html==3.0.0
 pytest-rerunfailures==9.1.1
+seldom==1.9.0
