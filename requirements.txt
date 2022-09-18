@@ -1,6 +1,5 @@
-playwright==0.171.1
-pytest-playwright==0.0.10
-pytest==6.2.1
+pytest==7.1.2
+playwright==1.25.2
+pytest-playwright==0.3.0
 pytest-html==3.1.1
 pytest-rerunfailures==9.1.1
-seldom==1.9.0

@@ -10,12 +10,12 @@ import pytest
 from os.path import dirname, abspath
 case_path = dirname(abspath(__file__))
 sys.path.insert(0, case_path)
-from element.baidu_element import BaiduElem
+from pages.baidu_page import BaiduPage
 
 
 @pytest.mark.parametrize(
     "name, search_key",
-    [("1", "Selenium"),
+    [("1", "playwright"),
      ("2", "pytest文档"),
      ("3", "pytest-html"),
      ],
@@ -23,8 +23,9 @@ from element.baidu_element import BaiduElem
 )
 def test_baidu_search_param(name, search_key, page, base_url):
     page.goto(base_url)
-    page.type(BaiduElem.search_input, search_key)
-    page.click(BaiduElem.search_button)
+    baidu_page = BaiduPage(page)
+    baidu_page.search_input.fill(search_key)
+    baidu_page.search_button.click()
     sleep(2)
     assert page.title() == search_key + "_百度搜索"
 
@@ -35,7 +36,13 @@ def test_baidu_search_param(name, search_key, page, base_url):
 )
 def test_baidu_search_data_file(name, search_key, page, base_url):
     page.goto(base_url)
-    page.type(BaiduElem.search_input, search_key)
-    page.click(BaiduElem.search_button)
+    baidu_page = BaiduPage(page)
+    baidu_page.search_input.fill(search_key)
+    baidu_page.search_button.click()
     sleep(2)
     assert page.title() == search_key + "_百度搜索"
+
+
+
+
+

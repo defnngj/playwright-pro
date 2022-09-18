@@ -7,13 +7,13 @@ class RunConfig:
     运行测试配置
     """
     # 运行测试用例的目录或文件
-    cases_path = os.path.join(PRO_PATH, "test_dir", "test_parametrize.py")
+    cases_path = os.path.join(PRO_PATH, "test_dir")
 
     # 配置浏览器驱动类型(chromium, firefox, webkit)。
     browser = "chromium"
 
     # 运行模式（headless, headful）
-    mode = "headful"
+    mode = "headless"
 
     # 配置运行的 URL
     url = "https://www.baidu.com"

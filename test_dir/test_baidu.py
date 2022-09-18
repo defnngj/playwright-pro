@@ -3,7 +3,7 @@ from time import sleep
 from playwright.async_api import Dialog
 from os.path import dirname, abspath
 sys.path.insert(0, dirname(dirname(abspath(__file__))))
-from element.baidu_element import BaiduElem
+from pages.baidu_page import BaiduPage
 from playwright.sync_api import Page
 
 
@@ -18,8 +18,9 @@ def test_baidu_search(page: Page, base_url):
     * 检查页面标题是否相等。
     """
     page.goto(base_url)
-    page.type(BaiduElem.search_input, text="playwright")
-    page.click(BaiduElem.search_button)
+    baidu_page = BaiduPage(page)
+    baidu_page.search_input.fill("playwright")
+    baidu_page.search_button.click()
     sleep(2)
     assert page.title() == "playwright_百度搜索"
 
@@ -37,10 +38,11 @@ def test_baidu_search_setting(page, base_url):
     * 检查是否弹出提示框
     """
     page.goto(base_url)
-    page.click(BaiduElem.settings)
-    page.click(BaiduElem.search_setting)
+    baidu_page = BaiduPage(page)
+    baidu_page.settings.click()
+    baidu_page.search_setting.click()
     sleep(2)
-    page.click(BaiduElem.save_setting)
+    baidu_page.save_setting.click()
 
     def on_dialog(dialog: Dialog):
         assert dialog.type == "alert"
@@ -50,5 +52,12 @@ def test_baidu_search_setting(page, base_url):
     page.on("dialog", on_dialog)
 
 
-def test_zzzz(page: Page, base_url):
-    assert 2+ 2 == 4
+# def test_zzzz(page: Page, base_url):
+#     assert 2 + 2 == 4
+#
+#
+#
+#
+#
+#
+
