@@ -15,12 +15,12 @@ $ pip install -r requirements.txt
 
 依赖库
 ```
-playwright==0.171.1
-pytest-playwright==0.0.10
-pytest==6.2.1
+playwright==1.25.2
+pytest==7.1.2
+pytest-playwright==0.3.0
 pytest-html==3.1.1
 pytest-rerunfailures==9.1.1
-seldom==1.9.0
+seldom==2.10.7
 ```
 
 注：安装```requirements.txt```指定依赖库的版本，这是经过测试的，有时候新的版本可会有错。
@@ -40,8 +40,8 @@ class RunConfig:
     # 配置浏览器驱动类型(chromium, firefox, webkit)。
     browser = "chromium"
 
-    # 运行模式（headless, headful）
-    mode = "headful"
+    # 运行模式（True/False）
+    headless = True
 
     # 配置运行的 URL
     url = "https://www.baidu.com"
