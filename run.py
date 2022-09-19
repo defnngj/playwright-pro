@@ -32,16 +32,16 @@ def run_tests():
     init_env(RunConfig.NEW_REPORT)
     html_report = os.path.join(RunConfig.NEW_REPORT, "report.html")
     xml_report = os.path.join(RunConfig.NEW_REPORT, "junit-xml.xml")
-    if RunConfig.mode == "headless":
-        pytest.main(["-s", "-v", RunConfig.cases_path,
+    if RunConfig.headless is True:
+        pytest.main(["-s", "-v", "--headed", RunConfig.cases_path,
                      "--browser=" + RunConfig.browser,
                      "--html=" + html_report,
                      "--junit-xml=" + xml_report,
                      "--self-contained-html",
                      "--maxfail", RunConfig.max_fail,
                      "--reruns", RunConfig.rerun])
-    if RunConfig.mode == "headful":
-        pytest.main(["-s", "-v", "--headful", RunConfig.cases_path,
+    if RunConfig.headless is False:
+        pytest.main(["-s", "-v", RunConfig.cases_path,
                      "--browser=" + RunConfig.browser,
                      "--html=" + html_report,
                      "--junit-xml=" + xml_report,

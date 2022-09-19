@@ -12,8 +12,8 @@ class RunConfig:
     # 配置浏览器驱动类型(chromium, firefox, webkit)。
     browser = "chromium"
 
-    # 运行模式（headless, headful）
-    mode = "headless"
+    # 运行模式（True/False）
+    headless = False
 
     # 配置运行的 URL
     url = "https://www.baidu.com"
